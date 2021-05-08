@@ -1,2 +1,2 @@
-### Kubernetes recipes and reusable code
+### Linux recipes and reusable code
 T
