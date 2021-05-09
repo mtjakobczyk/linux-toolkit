@@ -1,9 +1,9 @@
 ## Linux recipes and reusable code
 
 #### Inspect the storage in use across directories
-This `du` command estimates file space usage excluding the `/proc` pseudo-filesystem directory. It displays the grand total (`-c`) and individual totals (`-s`) for each directory (`*`) in the current working directory. The totals are displayed in kilobytes, megabytes or gigabytes (`-h`).
+This `du` command estimates file space usage in the root directory (`/*`), excluding the `/proc` pseudo-filesystem directory. It displays the grand total (`-c`) and individual totals (`-s`) for each subdirectory. The totals are displayed in kilobytes, megabytes or gigabytes (`-h`).
 
-    du -shc --exclude=proc *
+    du -shc --exclude=proc /*
 
 The output can look like this:
 ```
@@ -27,4 +27,11 @@ The output can look like this:
 456M	var
 1.7G	total
 ```
-T
+
+#### Prevent mounting /tmp in memory
+Prevent systemd from mounting `/tmp` as tmpfs (in-memory)
+
+```bash
+systemctl mask tmp.mount # followed by reboot
+```
+
