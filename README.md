@@ -29,8 +29,8 @@ The output can look like this:
 ```
 
 #### Prevent mounting /tmp in memory
-Prevent systemd from mounting `/tmp` as tmpfs (in-memory)
-
+Programs can create large files in `/tmp`. For some distros it will actually occupy space in memory rather than disk. 
+To prevent systemd from mounting `/tmp` as tmpfs (in-memory), use this command:
 ```bash
 systemctl mask tmp.mount # followed by reboot
 ```
