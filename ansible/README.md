@@ -17,7 +17,7 @@ The secrets are encrypted and decrypted on the fly using a symmetric key stored 
     ```bash
     #!/bin/bash
     ACCOUNT_NAME="mjk"
-    LABEL="ansible-vault"
+    SERVICE_NAME="ansible-vault"
     /usr/bin/security find-generic-password -w -a "$ACCOUNT_NAME" -s "$SERVICE_NAME"
     ```
 
