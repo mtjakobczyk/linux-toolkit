@@ -35,3 +35,9 @@ To prevent systemd from mounting `/tmp` as tmpfs (in-memory), use this command:
 systemctl mask tmp.mount # followed by reboot
 ```
 
+#### Coloring Terminal output
+```bash
+# Add to .profile
+export CLICOLOR=1
+export LSCOLORS=Exfxcxdxbxegedabagacad
+```
