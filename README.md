@@ -1,9 +1,15 @@
 ## Linux recipes and reusable code
 
-####
+#### Show directory tree
 Display `terraform-aws-eks` directory tree including directories (except `examples`,`docs` and `tools`) and files with `*.tf` and `*.tpl` extensions:
 ```bash
 tree -P '*.tf|*.tpl' -I 'examples|docs|tools' terraform-aws-eks
+```
+
+#### Find all lines that begin with a particular pattern in selected files
+
+```bash
+grep "^resource " terraform-aws-eks/*.tf  terraform-aws-eks/modules/*/*.tf
 ```
 
 #### Inspect the storage in use across directories
