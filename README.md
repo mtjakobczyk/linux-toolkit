@@ -1,5 +1,11 @@
 ## Linux recipes and reusable code
 
+####
+Display `terraform-aws-eks` directory tree including directories (except `examples`,`docs` and `tools`) and files with `*.tf` and `*.tpl` extensions:
+```bash
+tree -P '*.tf|*.tpl' -I 'examples|docs|tools' terraform-aws-eks
+```
+
 #### Inspect the storage in use across directories
 This `du` command estimates file space usage in the root directory (`/*`), excluding the `/proc` pseudo-filesystem directory. It displays the grand total (`-c`) and individual totals (`-s`) for each subdirectory. The totals are displayed in kilobytes, megabytes or gigabytes (`-h`).
 
