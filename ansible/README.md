@@ -1,5 +1,27 @@
 ## Ansible automation 
 
+### Quick Ansible setup on a developer's client
+
+1. Define user settings
+Define some user settings in `~/.ansible.cfg` file:
+```
+[defaults]
+# Path to the default inventory
+inventory       = /Users/mjk/Code/Ansible/hosts
+
+# we do not want to see cowsay
+nocows          = 1
+
+# Default user to use for playbooks if user is not specified
+remote_user = engineer
+
+# An executable script that returns the vault password to stdout:
+vault_password_file = /Users/mjk/Code/Ansible/vault_over_keychain.sh
+```
+
+2. Create user inventory file (i.e. `/Users/mjk/Code/Ansible/hosts`)
+
+
 ### Using Ansible Vault to securely store secrets
 **Ansible Vault** is used to store secrets in an encrypted form across Ansible configurations.  
 The secrets are encrypted and decrypted on the fly using a symmetric key stored in an external secret manager (macOS Keychain).
@@ -13,7 +35,7 @@ The secrets are encrypted and decrypted on the fly using a symmetric key stored 
     ```
 
 2. This script will be used by Ansible to retrieve the symmetric key from macOS Keychain.  
-    Save it as `$HOME/.retrieve-vault-key-from-keychain.sh`
+    Save it as `vault_over_keychain.sh`
     ```bash
     #!/bin/bash
     ACCOUNT_NAME="mjk"
@@ -23,7 +45,7 @@ The secrets are encrypted and decrypted on the fly using a symmetric key stored 
 
 3. Append the following line to your `$HOME/.ansible.cfg` under the `[defaults]` section:
     ```
-    vault_password_file = .retrieve-vault-key-from-keychain.sh
+    vault_password_file = /Users/mjk/Code/Ansible/vault_over_keychain.sh
     ```
 
 #### Usage
