@@ -35,10 +35,11 @@ Steps:
             c1.vm.hostname = "dev-1"
             c1.vm.network "private_network", ip: "192.168.57.11", name: "vboxnet1"
             c1.vm.provider "virtualbox" do |vb|
-            vb.name = "my-dev-1"
-            vb.cpus = 2
-            vb.memory = "4096"
-            vb.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+                vb.name = "my-dev-1"
+                vb.cpus = 2
+                vb.memory = "4096"
+                vb.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+            end
         end
     end
     ```
